@@ -2,7 +2,6 @@ import * as THREE from 'three';
 import { OrbitControls } from 'three/examples/jsm/controls/OrbitControls.js';
 import { Timer } from 'three/addons/misc/Timer.js';
 import GUI from 'lil-gui';
-import { rotate } from 'three/tsl';
 
 /**
  * Base
@@ -66,9 +65,6 @@ const floor = new THREE.Mesh(
     displacementBias: -0.2,
   })
 );
-
-gui.add(floor.material, 'displacementScale').min(0).max(1).step(0.01);
-gui.add(floor.material, 'displacementBias').min(-1).max(1).step(0.01);
 
 // round the floor
 floor.rotation.x = -Math.PI * 0.5;
@@ -266,13 +262,36 @@ for (let i = 0; i < 30; i++) {
  * Lights
  */
 // Ambient light
-const ambientLight = new THREE.AmbientLight('#ffffff', 0.5);
+const ambientLight = new THREE.AmbientLight('#86cdff', 1);
 scene.add(ambientLight);
 
 // Directional light
-const directionalLight = new THREE.DirectionalLight('#ffffff', 1.5);
+const directionalLight = new THREE.DirectionalLight('#86cdff', 2);
 directionalLight.position.set(3, 2, -8);
 scene.add(directionalLight);
+
+const doorLight = new THREE.PointLight('#ff7d46', 3);
+
+doorLight.position.set(0, 2, 2.5);
+
+house.add(doorLight);
+
+gui
+  .add(directionalLight, 'intensity')
+  .min(0)
+  .max(5)
+  .step(0.001)
+  .name('directional light intensity');
+
+gui.add(ambientLight, 'intensity').min(0).max(5).step(0.001).name('ambient light intensity');
+
+// Ghosts
+
+const ghost1 = new THREE.PointLight('#8800ff', 6);
+const ghost2 = new THREE.PointLight('#ff0088', 6);
+const ghost3 = new THREE.PointLight('#ff0000', 6);
+
+scene.add(ghost1, ghost2, ghost3);
 
 /**
  * Sizes
@@ -328,6 +347,29 @@ const tick = () => {
   // Timer
   timer.update();
   const elapsedTime = timer.getElapsed();
+
+  // Update ghosts
+
+  const ghost1Angle = elapsedTime * 0.5;
+
+  ghost1.position.x = Math.cos(ghost1Angle) * 4;
+  ghost1.position.z = Math.sin(ghost1Angle) * 4;
+  ghost1.position.y =
+    Math.sin(ghost1Angle) * Math.sin(ghost1Angle * 2.34) * Math.sin(ghost1Angle * 3.45);
+
+  const ghost2Angle = -elapsedTime * 0.38;
+
+  ghost2.position.x = Math.cos(ghost2Angle) * 5;
+  ghost2.position.z = Math.sin(ghost2Angle) * 5;
+  ghost2.position.y =
+    Math.sin(ghost2Angle) * Math.sin(ghost2Angle * 2.34) * Math.sin(ghost2Angle * 3.45);
+
+  const ghost3Angle = elapsedTime * 0.23;
+
+  ghost3.position.x = Math.cos(ghost3Angle) * 6;
+  ghost3.position.z = Math.sin(ghost3Angle) * 6;
+  ghost3.position.y =
+    Math.sin(ghost3Angle) * Math.sin(ghost3Angle * 2.34) * Math.sin(ghost3Angle * 3.45);
 
   // Update controls
   controls.update();
