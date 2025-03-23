@@ -22,12 +22,12 @@ const scene = new THREE.Scene();
 
 const textureLoader = new THREE.TextureLoader();
 
-const floorTexture = textureLoader.load('floor/alpha.jpg');
+const floorTexture = textureLoader.load('floor/alpha.webp');
 
-const floorColorTexture = textureLoader.load('floor/rocks/coast_sand_rocks_02_diff_1k.jpg');
-const floorARMTexture = textureLoader.load('floor/rocks/coast_sand_rocks_02_arm_1k.jpg');
-const floorNormalTexture = textureLoader.load('floor/rocks/coast_sand_rocks_02_nor_gl_1k.jpg');
-const floorDisplacementTexture = textureLoader.load('floor/rocks/coast_sand_rocks_02_disp_1k.jpg');
+const floorColorTexture = textureLoader.load('floor/rocks/coast_sand_rocks_02_diff_1k.webp');
+const floorARMTexture = textureLoader.load('floor/rocks/coast_sand_rocks_02_arm_1k.webp');
+const floorNormalTexture = textureLoader.load('floor/rocks/coast_sand_rocks_02_nor_gl_1k.webp');
+const floorDisplacementTexture = textureLoader.load('floor/rocks/coast_sand_rocks_02_disp_1k.webp');
 
 floorColorTexture.colorSpace = THREE.SRGBColorSpace;
 
@@ -81,9 +81,9 @@ house.position.y = -0.1;
 
 scene.add(house);
 
-const wallsColorTexture = textureLoader.load('wall/castle/castle_brick_broken_06_diff_1k.jpg');
-const wallsNormalTexture = textureLoader.load('wall/castle/castle_brick_broken_06_nor_1k.jpg');
-const wallsArm = textureLoader.load('wall/castle/castle_brick_broken_06_arm_1k.jpg');
+const wallsColorTexture = textureLoader.load('wall/castle/castle_brick_broken_06_diff_1k.webp');
+const wallsNormalTexture = textureLoader.load('wall/castle/castle_brick_broken_06_nor_1k.webp');
+const wallsArm = textureLoader.load('wall/castle/castle_brick_broken_06_arm_1k.webp');
 
 wallsColorTexture.colorSpace = THREE.SRGBColorSpace;
 
@@ -102,9 +102,9 @@ walls.position.y += 1.25;
 
 house.add(walls);
 
-const roofColorTexture = textureLoader.load('roof/slates/roof_slates_02_diff_1k.jpg');
-const roofsNormalTexture = textureLoader.load('roof/slates/roof_slates_02_nor_1k.jpg');
-const roofArm = textureLoader.load('roof/slates/roof_slates_02_arm_1k.jpg');
+const roofColorTexture = textureLoader.load('roof/slates/roof_slates_02_diff_1k.webp');
+const roofsNormalTexture = textureLoader.load('roof/slates/roof_slates_02_nor_1k.webp');
+const roofArm = textureLoader.load('roof/slates/roof_slates_02_arm_1k.webp');
 
 roofColorTexture.colorSpace = THREE.SRGBColorSpace;
 
@@ -167,9 +167,9 @@ door.material.side = THREE.DoubleSide;
 
 house.add(door);
 
-const bushColorTexture = textureLoader.load('bush/leaves/leaves_forest_ground_diff_1k.jpg');
-const bushNormalTexture = textureLoader.load('bush/leaves/leaves_forest_ground_nor_1k.jpg');
-const bushArm = textureLoader.load('bush/leaves/leaves_forest_ground_arm_1k.jpg');
+const bushColorTexture = textureLoader.load('bush/leaves/leaves_forest_ground_diff_1k.webp');
+const bushNormalTexture = textureLoader.load('bush/leaves/leaves_forest_ground_nor_1k.webp');
+const bushArm = textureLoader.load('bush/leaves/leaves_forest_ground_arm_1k.webp');
 
 bushColorTexture.colorSpace = THREE.SRGBColorSpace;
 
@@ -220,9 +220,9 @@ bush4.rotation.x = -0.75;
 
 house.add(bush4);
 
-const graveColorTexture = textureLoader.load('grave/stone/plastered_stone_wall_diff_1k.jpg');
-const graveNormalTexture = textureLoader.load('grave/stone/plastered_stone_wall_nor_1k.jpg');
-const graveArm = textureLoader.load('grave/stone/plastered_stone_wall_arm_1k.jpg');
+const graveColorTexture = textureLoader.load('grave/stone/plastered_stone_wall_diff_1k.webp');
+const graveNormalTexture = textureLoader.load('grave/stone/plastered_stone_wall_nor_1k.webp');
+const graveArm = textureLoader.load('grave/stone/plastered_stone_wall_arm_1k.webp');
 
 graveColorTexture.colorSpace = THREE.SRGBColorSpace;
 
